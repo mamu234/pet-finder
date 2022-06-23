@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'petfinder'
+    'petfinder',
     'cloudinary_storage',
     'cloudinary',
 ]
@@ -119,7 +119,7 @@ USE_TZ = True
 
 
 
-cloudinary( 
+cloudinary.config( 
     cloud_name = 'dgwsgoxjd',
     api_key = '269319899829333',
     api_secret = "Ge8SNu-60CxUS9Nefa68cwGVrlw",
