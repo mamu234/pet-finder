@@ -1,7 +1,8 @@
 from distutils.command.upload import upload
 from django.db import models
-from django.forms import BooleanField, CharField, IntegerField
+from django.forms import CharField, IntegerField
 from .models import *
+from cloudinary.models import CloudinaryField
 from django.contrib.auth.models import User
 
 
@@ -46,3 +47,10 @@ class Comment(models.Model):
 
   class Meta: 
     ordering = ['-created_at']
+
+class Photos(models.Model):
+    title = models.CharField(max_length=100)
+    image = CloudinaryField('image')
+    
+    def __str__(self):
+        return self.title
