@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}   
+<link rel = "stylesheet" type = "text/css" href = "{% static 'styles/main.css'%}">
+<head>    
+<h1>Sign up</h1>
+<div class="container">
+    <div class="row">
+        <div class="signup_container">
+            <div class="signup_container__img">
+                <img src="{% static 'snoopy.jpg' %}" />
+            </div>
+
+
+        <div class="col-1"></div>
+        <div class="col-5 mt-5">
+            <h2 style="font-family: 'Courgette', cursive;
+            color: rgba(233, 135, 74, 0.866);" class="text-center">Welcome to Petfinder </h2>
+            <div class="content-section">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4 text-center">Sign Up</legend>
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-success" type="submit">Log in</button>
+                    </div>
+                </form>
+                <div class="border-top pt-3">
+                    <small class="text-muted"> Do you Have An Account?<a href="{% url 'login' %}" class="ml-2">Sign in</a></small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock%}

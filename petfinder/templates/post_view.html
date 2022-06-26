@@ -1,0 +1,59 @@
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="post_view">
+{% comment %} <h1>Find your Tail</h1>
+<form class="d-flex">
+  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+  <button class="btn btn-outline-dark" type="submit">Search</button>
+</form> {% endcomment %}
+
+<div class="add_post">
+  <button class="btn btn-light">
+    <a href="{% url 'post_create' %}" style="text-decoration:none;"> <i class="fas fa-paw"></i> Add Post</a> 
+  </button>
+</div>
+
+<div class="card_container">
+  {% for post in posts %}
+  <div class="card" style="width: 18rem;">
+    <a href="{% url 'post_detail' post%}">
+    <img src="{{ post.image }}" class="card-img-top" alt="...">
+    </a>
+    <div class="card-body">
+      <div class="card-body__title">
+      <a href="{% url 'post_detail'  %}" style="text-decoration:none;">
+        <h5 class="card-title">{{ post.dog_name }}</h5>
+      </a>
+        <div class="card-body__icons">
+          <i id="heart" class="far fa-heart"></i>
+          <i id="comment" class="far fa-comment-alt"></i>
+        </div>
+      </div>
+      <p id="card-text"> {{ post.breed }} </p>
+      <div class="card-text__blocks">
+        <div class="gender">
+          <h6>Gender</h6>
+          <p>{{ post.gender }}</p>
+        </div>
+        <div class="age">
+          <h6>Age</h6>
+          <p>{{ post.age }}</p>
+        </div>
+        <div class="size">
+          <h6>Size</h6>
+          <p>{{ post.size }} lbs </p>
+        </div>
+      </div>
+      {% comment %} <a href="{% url 'post_detail'  %}" class="btn btn-dark mt-3">Go somewhere</a> {% endcomment %}
+    </div>
+    
+  </div>
+    {% endfor %}
+</div>
+
+</div>
+{% endblock %}
